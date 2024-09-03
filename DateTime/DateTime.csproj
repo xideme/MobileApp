@@ -14,17 +14,17 @@
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
 		<OutputType>Exe</OutputType>
-		<RootNamespace>ValgusfoorApp</RootNamespace>
+		<RootNamespace>DateTime</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>ValgusfoorApp</ApplicationTitle>
+		<ApplicationTitle>DateTime</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.valgusfoorapp</ApplicationId>
+		<ApplicationId>com.companyname.datetime</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -57,11 +57,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="MainPage.xaml" />
+	  <MauiXaml Remove="Picker.xaml" />
+	  <MauiXaml Remove="Slider.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="MainPage.xaml" />
+	  <EmbeddedResource Include="Picker.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Slider.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
