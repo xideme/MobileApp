@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewValgusfoor.MainPage">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+
+        <!-- Красный свет -->
+        <Frame x:Name="RedLight" BackgroundColor="Gray" CornerRadius="90" HeightRequest="120" WidthRequest="200" Margin="0,10">
+            <Label x:Name="RedLabel" Text="punane" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRedLightTapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <!-- Желтый свет -->
+        <Frame x:Name="YellowLight" BackgroundColor="Gray" CornerRadius="90" HeightRequest="120" WidthRequest="200" Margin="0,10">
+            <Label x:Name="YellowLabel" Text="kollane" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnYellowLightTapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <!-- Зеленый свет -->
+        <Frame x:Name="GreenLight" BackgroundColor="Gray" CornerRadius="90" HeightRequest="120" WidthRequest="200" Margin="0,10">
+            <Label x:Name="GreenLabel" Text="roheline" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black"/>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGreenLightTapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+
+        <!-- Кнопки -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30">
+            <Button Text="SISSE" WidthRequest="100" HorizontalOptions="Center" Clicked="OnSisseButtonClicked"/>
+            <Button Text="VÄLJA" WidthRequest="100" HorizontalOptions="Center" Margin="20,0,0,0" Clicked="OnValjaButtonClicked"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>
+
+
+
