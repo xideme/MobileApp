@@ -6,7 +6,7 @@ namespace NewValgusfoor
 {
     public partial class MainPage : ContentPage
     {
-        private bool isTrafficLightOn = false;
+        private bool TrafficLightOn = false;
 
         public MainPage()
         {
@@ -14,26 +14,26 @@ namespace NewValgusfoor
         }
 
         // Sisse Button
-        private void OnSisseButtonClicked(object sender, EventArgs e)
+        private void SisseButtonClicked(object sender, EventArgs e)
         {
-            if (isTrafficLightOn== false)
+            if (TrafficLightOn== false)
             {
-                isTrafficLightOn = true;
+                TrafficLightOn = true;
                 ResetLights();
             }
         }
 
         // Valja Button
-        private void OnValjaButtonClicked(object sender, EventArgs e)
+        private void ValjaButtonClicked(object sender, EventArgs e)
         {
-            isTrafficLightOn = false;
+            TrafficLightOn = false;
             ResetLights();
         }
 
         // Manually set the color on tap
         private void OnRedLightTapped(object sender, EventArgs e)
         {
-            if (isTrafficLightOn == true)
+            if (TrafficLightOn == true)
             {
                 SetLightState(Colors.Red, Colors.Gray, Colors.Gray);
                 RedLabel.Text = "Стой";
@@ -46,7 +46,7 @@ namespace NewValgusfoor
 
         private void OnYellowLightTapped(object sender, EventArgs e)
         {
-            if (isTrafficLightOn == true)
+            if (TrafficLightOn == true)
             {
                 SetLightState(Colors.Gray, Colors.Yellow, Colors.Gray);
                 YellowLabel.Text = "Внимание";
@@ -59,7 +59,7 @@ namespace NewValgusfoor
 
         private void OnGreenLightTapped(object sender, EventArgs e)
         {
-            if (isTrafficLightOn == true)
+            if (TrafficLightOn == true)
             {
                 SetLightState(Colors.Gray, Colors.Gray, Colors.Green);
                 GreenLabel.Text = "Иди";

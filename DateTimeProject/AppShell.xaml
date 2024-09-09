@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DateTimeProject.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DateTimeProject"
+    Shell.FlyoutBehavior="Disabled"
+    Title="DateTimeProject">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <!-- Add routes for DateTimePage and StepperSlider_Page -->
+    <ShellContent
+        Title="DateTime Picker"
+        ContentTemplate="{DataTemplate local:DateTimePage}"
+        Route="DateTimePage" />
+
+    <ShellContent
+        Title="Stepper and Slider"
+        ContentTemplate="{DataTemplate local:StepperSlider_Page}"
+        Route="StepperSlider_Page" />
+
+    <ShellContent
+    Title="RGB"
+    ContentTemplate="{DataTemplate local:RGB}"
+    Route="RGB" />
+
+</Shell>

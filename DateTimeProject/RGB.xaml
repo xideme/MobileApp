@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DateTimeProject.RGB"
+             Title="RGB">
+    <VerticalStackLayout>
+        <VerticalStackLayout x:Name="vslLeft" WidthRequest="310"
+                            VerticalOptions="Center" Spacing="25" Padding="5">
+            <HorizontalStackLayout Spacing="10">
+                <Slider x:Name="sliderRed" Minimum="0" Maximum="255"
+                        BackgroundColor="Red" Value="255" WidthRequest="255"
+                        ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
+                <Label x:Name="lblRedValue" Text="255" FontSize="Medium"
+                       FontAttributes="Bold" TextColor="Red"></Label>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

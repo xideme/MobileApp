@@ -30,9 +30,9 @@
         </Frame>
 
         <!-- Кнопки -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,30">
-            <Button Text="SISSE" WidthRequest="100" HorizontalOptions="Center" Clicked="OnSisseButtonClicked"/>
-            <Button Text="VÄLJA" WidthRequest="100" HorizontalOptions="Center" Margin="20,0,0,0" Clicked="OnValjaButtonClicked"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="1">
+            <Button Text="SISSE" WidthRequest="100" HorizontalOptions="Center" Clicked="SisseButtonClicked"/>
+            <Button Text="VÄLJA" WidthRequest="100" HorizontalOptions="Center" Margin="20,0,0,0" Clicked="ValjaButtonClicked"/>
         </StackLayout>
 
     </StackLayout>
