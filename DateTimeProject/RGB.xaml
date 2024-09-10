@@ -4,6 +4,9 @@
              x:Class="DateTimeProject.RGB"
              Title="RGB">
     <VerticalStackLayout>
+    
+
+
         <VerticalStackLayout x:Name="vslLeft" WidthRequest="310"
                             VerticalOptions="Center" Spacing="25" Padding="5">
             <HorizontalStackLayout Spacing="10">
@@ -14,6 +17,37 @@
                        FontAttributes="Bold" TextColor="Red"></Label>
             </HorizontalStackLayout>
             
+
+
+        <HorizontalStackLayout Spacing="10">
+            <Slider x:Name="sliderGreen" Minimum="0" Maximum="255"
+                     BackgroundColor="Green" Value="255" WidthRequest="255"
+                     ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
+            <Label x:Name="lblGreenValue" Text="255" FontSize="Medium"
+                    FontAttributes="Bold" TextColor="Green"></Label>
+        </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="10">
+                <Slider x:Name="sliderBlue" Minimum="0" Maximum="255"
+             BackgroundColor="Blue" Value="255" WidthRequest="255"
+             ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
+                <Label x:Name="lblBlueValue" Text="255" FontSize="Medium"
+            FontAttributes="Bold" TextColor="Blue"></Label>
+            </HorizontalStackLayout>
+            
+            
+
+            <HorizontalStackLayout Spacing="10">
+                <Border x:Name="borderSwatch" WidthRequest="100" HeightRequest="100" BackgroundColor="White" />
+                <Label x:Name="lblHexColor" FontSize="Large" FontAttributes="Bold"  WidthRequest="255"  VerticalOptions="Center"
+                       Text="#FF0000"></Label>
+                 </HorizontalStackLayout>
+            
+            
+            <Slider x:Name="AlphaSlider" Maximum="255" Value="0" ValueChanged="SetColor" />
+            <Label x:Name="lblAlphaValue" Text="255" />
+
+
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

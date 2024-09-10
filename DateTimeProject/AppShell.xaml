@@ -28,4 +28,9 @@
     ContentTemplate="{DataTemplate local:RGB}"
     Route="RGB" />
 
+    <ShellContent
+    Title="PickerImagePage"
+    ContentTemplate="{DataTemplate local:PickerImagePage}"
+    Route="PickerImagePage" />
+    
 </Shell>

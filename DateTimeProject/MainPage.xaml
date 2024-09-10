@@ -31,8 +31,14 @@
             Text="Go to RGB Slider"
             Clicked="OnRGbSliderButtonClicked"
             HorizontalOptions="Fill" />
-            
-            
+
+            <!-- Button to navigate to RGB slider -->
+            <Button
+            Text="Go to Image Picker"
+            Clicked="OnImagePickerButtonClicked"
+            HorizontalOptions="Fill" />
+
+
         </VerticalStackLayout>
     </ScrollView>
 
