@@ -1,17 +1,17 @@
+using Microsoft.Maui.Controls.Shapes;
+
 namespace DateTimeProject;
 
 public partial class RGB : ContentPage
 {
-
     public RGB()
     {
         InitializeComponent();
     }
 
-
-    private void SetColor(object sender, ValueChangedEventArgs args)
+    private void SetColor(object triger, ValueChangedEventArgs args)
     {
-        Slider target = sender as Slider;
+        Slider target = triger as Slider; //identify the specific slider that triggered the event 
         int value = (int)target.Value;
 
         // Check which slider has changed
@@ -27,32 +27,42 @@ public partial class RGB : ContentPage
         {
             lblBlueValue.Text = value.ToString();
         }
-        else if (target == AlphaSlider)
+        else if (target == roundSlider) //adjust the corner radius
         {
-            lblAlphaValue.Text = value.ToString();
+            lblRoundValue.Text = value.ToString();
+            SetSwatchCornerRadius(value); //update corner radius based on the slider value
         }
-
 
         UpdateSwatch();
     }
-
 
     private void UpdateSwatch()
     {
         int r = GetColorValue(lblRedValue);
         int g = GetColorValue(lblGreenValue);
         int b = GetColorValue(lblBlueValue);
-        int a = GetColorValue(lblAlphaValue);
 
-        // Apply the color with the alpha (transparency) value
-        borderSwatch.BackgroundColor = Color.FromRgba(r, g, b, a / 255.0);
+        
+        borderSwatch.BackgroundColor = Color.FromRgb(r, g, b); //apply the color
 
-        // Update the hex label (without alpha)
-        lblHexColor.Text = $"#{r:X2}{g:X2}{b:X2}";
+        //update the hex label
+        lblHexColor.Text = $"#{r:X2}{g:X2}{b:X2}"; //format specifier. X converts the integer to a hexadecimal string,
+                                                   //and 2 specifies that the result should be at least two digits long
     }
+
     private int GetColorValue(Label label)
     {
-        // Return the parsed integer value or 0 if the value cannot be parsed
-        return int.TryParse(label.Text, out int value) ? value : 0;
+        // Return the parsed integer value or 0
+        return int.TryParse(label.Text, out int value) ? value : 0; //If true, the method returns the integer value (value).
+    }
+
+    //method to set the StrokeShape's CornerRadius of borderSwatch
+    private void SetSwatchCornerRadius(int value)
+    {
+        //Specifies that the border should be a rounded rectangle.
+        borderSwatch.StrokeShape = new RoundRectangle
+        {
+            CornerRadius = new CornerRadius(value)
+        };
     }
 }

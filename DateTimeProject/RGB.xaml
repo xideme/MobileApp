@@ -3,51 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DateTimeProject.RGB"
              Title="RGB">
-    <VerticalStackLayout>
-    
+	<VerticalStackLayout>
 
+		<VerticalStackLayout x:Name="vst" WidthRequest="300"
+                             VerticalOptions="Center" Spacing="25" Padding="5">
 
-        <VerticalStackLayout x:Name="vslLeft" WidthRequest="310"
-                            VerticalOptions="Center" Spacing="25" Padding="5">
+			<!-- Red Slider -->
+			<HorizontalStackLayout Spacing="10">
+				<Slider x:Name="sliderRed" Minimum="0" Maximum="255"
+                        BackgroundColor="Red" Value="0" WidthRequest="255"
+                        ThumbColor="White" HeightRequest="50" ValueChanged="SetColor"/>
+				<Label x:Name="lblRedValue" Text="0" FontSize="Medium"
+                       FontAttributes="Bold" TextColor="Red"/>
+			</HorizontalStackLayout>
+
+			<!-- Green Slider -->
+			<HorizontalStackLayout Spacing="10">
+				<Slider x:Name="sliderGreen" Minimum="0" Maximum="255"
+                        BackgroundColor="Green" Value="0" WidthRequest="255"
+                        ThumbColor="White" HeightRequest="50" ValueChanged="SetColor"/>
+				<Label x:Name="lblGreenValue" Text="0" FontSize="Medium"
+                       FontAttributes="Bold" TextColor="Green"/>
+			</HorizontalStackLayout>
+
+			<!-- Blue Slider -->
+			<HorizontalStackLayout Spacing="10">
+				<Slider x:Name="sliderBlue" Minimum="0" Maximum="255"
+                        BackgroundColor="Blue" Value="0" WidthRequest="255"
+                        ThumbColor="White" HeightRequest="50" ValueChanged="SetColor"/>
+				<Label x:Name="lblBlueValue" Text="0" FontSize="Medium"
+                       FontAttributes="Bold" TextColor="Blue"/>
+			</HorizontalStackLayout>
+
+			<!-- Color and Hex Code Label -->
+			<HorizontalStackLayout Spacing="10">
+				<Border x:Name="borderSwatch" WidthRequest="200" HeightRequest="200"
+                        BackgroundColor="White" VerticalOptions="Center" />
+				<Label x:Name="lblHexColor" FontSize="Large" FontAttributes="Bold"
+                       WidthRequest="255" VerticalOptions="Center" Text="#FF0000"/>
+			</HorizontalStackLayout>
+
+			<!--  Round Slider -->
             <HorizontalStackLayout Spacing="10">
-                <Slider x:Name="sliderRed" Minimum="0" Maximum="255"
-                        BackgroundColor="Red" Value="255" WidthRequest="255"
-                        ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
-                <Label x:Name="lblRedValue" Text="255" FontSize="Medium"
-                       FontAttributes="Bold" TextColor="Red"></Label>
+                <Slider x:Name="roundSlider" Minimum="0" Maximum="100" Value="0"
+                        WidthRequest="255" ThumbColor="White" HeightRequest="150" 
+                         ValueChanged="SetColor"/>
+                <Label x:Name="lblRoundValue" Text="Round" FontSize="Large"
+                       FontAttributes="Bold" TextColor="White"/>
             </HorizontalStackLayout>
-            
-
-
-        <HorizontalStackLayout Spacing="10">
-            <Slider x:Name="sliderGreen" Minimum="0" Maximum="255"
-                     BackgroundColor="Green" Value="255" WidthRequest="255"
-                     ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
-            <Label x:Name="lblGreenValue" Text="255" FontSize="Medium"
-                    FontAttributes="Bold" TextColor="Green"></Label>
-        </HorizontalStackLayout>
-
-            <HorizontalStackLayout Spacing="10">
-                <Slider x:Name="sliderBlue" Minimum="0" Maximum="255"
-             BackgroundColor="Blue" Value="255" WidthRequest="255"
-             ThumbColor="White" HeightRequest="20" ValueChanged="SetColor"/>
-                <Label x:Name="lblBlueValue" Text="255" FontSize="Medium"
-            FontAttributes="Bold" TextColor="Blue"></Label>
-            </HorizontalStackLayout>
-            
-            
-
-            <HorizontalStackLayout Spacing="10">
-                <Border x:Name="borderSwatch" WidthRequest="100" HeightRequest="100" BackgroundColor="White" />
-                <Label x:Name="lblHexColor" FontSize="Large" FontAttributes="Bold"  WidthRequest="255"  VerticalOptions="Center"
-                       Text="#FF0000"></Label>
-                 </HorizontalStackLayout>
-            
-            
-            <Slider x:Name="AlphaSlider" Maximum="255" Value="0" ValueChanged="SetColor" />
-            <Label x:Name="lblAlphaValue" Text="255" />
-
 
         </VerticalStackLayout>
-    </VerticalStackLayout>
+	</VerticalStackLayout>
 </ContentPage>
