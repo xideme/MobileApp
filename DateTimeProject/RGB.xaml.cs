@@ -9,31 +9,36 @@ public partial class RGB : ContentPage
         InitializeComponent();
     }
 
-    private void SetColor(object triger, ValueChangedEventArgs args)
+    private void SetColor(Slider values, double newValue)
     {
-        Slider target = triger as Slider; //identify the specific slider that triggered the event 
-        int value = (int)target.Value;
+        int value = (int)newValue;  // Convert the slider value to an integer
 
-        // Check which slider has changed
-        if (target == sliderRed)
+        // Check which slider is being updated
+        if (values == sliderRed)
         {
             lblRedValue.Text = value.ToString();
         }
-        else if (target == sliderGreen)
+        else if (values == sliderGreen)
         {
             lblGreenValue.Text = value.ToString();
         }
-        else if (target == sliderBlue)
+        else if (values == sliderBlue)
         {
             lblBlueValue.Text = value.ToString();
         }
-        else if (target == roundSlider) //adjust the corner radius
+        else if (values == roundSlider) // Update the corner radius
         {
             lblRoundValue.Text = value.ToString();
-            SetSwatchCornerRadius(value); //update corner radius based on the slider value
+            SetSwatchCornerRadius(value);  // Set the corner radius based on the slider value
         }
 
-        UpdateSwatch();
+        UpdateSwatch();  // Update the swatch color based on the new slider values
+    }
+
+    private int GetColorValue(Label label)
+    {
+
+        return int.Parse(label.Text); //the method returns the integer value (value).
     }
 
     private void UpdateSwatch()
@@ -50,11 +55,6 @@ public partial class RGB : ContentPage
                                                    //and 2 specifies that the result should be at least two digits long
     }
 
-    private int GetColorValue(Label label)
-    {
-        // Return the parsed integer value or 0
-        return int.TryParse(label.Text, out int value) ? value : 0; //If true, the method returns the integer value (value).
-    }
 
     //method to set the StrokeShape's CornerRadius of borderSwatch
     private void SetSwatchCornerRadius(int value)
