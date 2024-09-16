@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TicTacToe.MainPage"
+             BackgroundColor="Yellow">
+
+    <Grid Padding="20" RowSpacing="10" ColumnSpacing="10" BackgroundColor="Yellow">
+        <!-- Define 3 rows for Tic-Tac-Toe grid + 1 row for buttons -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Row 0 -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row 1 -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row 2 -->
+            <RowDefinition Height="Auto"/>
+            <!-- Row for buttons -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Tic-Tac-Toe buttons -->
+        <Button x:Name="Button0" Grid.Row="0" Grid.Column="0" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button1" Grid.Row="0" Grid.Column="1" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button2" Grid.Row="0" Grid.Column="2" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button3" Grid.Row="1" Grid.Column="0" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button4" Grid.Row="1" Grid.Column="1" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button5" Grid.Row="1" Grid.Column="2" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button6" Grid.Row="2" Grid.Column="0" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button7" Grid.Row="2" Grid.Column="1" FontSize="Large" Clicked="OnButtonClick"/>
+        <Button x:Name="Button8" Grid.Row="2" Grid.Column="2" FontSize="Large" Clicked="OnButtonClick"/>
+
+        <!-- New Game and First Player buttons below the grid -->
+        <Grid Grid.Row="3" Grid.ColumnSpan="3" ColumnSpacing="10" Padding="0, 20, 0, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Button for New Game -->
+            <Button Text="Новая игра" Clicked="NewGame" Grid.Column="0" BackgroundColor="LightGreen" FontSize="Medium"/>
+
+            <!-- Button for Choosing First Player -->
+            <Button Text="Кто первый?" Clicked="ChooseFirstPlayer" Grid.Column="1" BackgroundColor="LightBlue" FontSize="Medium"/>
+        </Grid>
+    </Grid>
+</ContentPage>
+

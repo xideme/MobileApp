@@ -46,10 +46,10 @@
 			<!--  Round Slider -->
             <HorizontalStackLayout Spacing="10">
                 <Slider x:Name="roundSlider" Minimum="0" Maximum="100" Value="0"
-                        WidthRequest="255" ThumbColor="White" HeightRequest="150" 
-                         ValueChanged="SetColor"/>
+                        WidthRequest="255" ThumbColor="White" HeightRequest="150"
+                        BackgroundColor="Grey" ValueChanged="SetColor"/>
                 <Label x:Name="lblRoundValue" Text="Round" FontSize="Large"
-                       FontAttributes="Bold" TextColor="White"/>
+                       FontAttributes="Bold" TextColor="Grey"/>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

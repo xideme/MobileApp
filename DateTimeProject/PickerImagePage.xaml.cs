@@ -1,7 +1,6 @@
 
 namespace DateTimeProject;
 
-
 public partial class PickerImagePage : ContentPage
 {
     Grid gr4x1, gr3x3;
@@ -10,6 +9,7 @@ public partial class PickerImagePage : ContentPage
     Switch s_img, s_grid;
     public PickerImagePage(int k)
     {
+
         gr4x1 = new Grid
         {
             RowDefinitions =
@@ -62,6 +62,8 @@ public partial class PickerImagePage : ContentPage
 
         Content = gr4x1;
     }
+
+
 
     private void S_img_Toggled(object? sender, ToggledEventArgs e)
     {
