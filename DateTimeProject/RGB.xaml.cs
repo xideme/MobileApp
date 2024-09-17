@@ -7,13 +7,16 @@ public partial class RGB : ContentPage
     public RGB()
     {
         InitializeComponent();
+
+
     }
 
-    private void SetColor(Slider values, double newValue)
+    // This method should only update the current slider's value, not recursively call itself
+    private void SetColor(object values, ValueChangedEventArgs e)
     {
-        int value = (int)newValue;  // Convert the slider value to an integer
+        Slider slider = values as Slider;
+        int value = (int)e.NewValue;
 
-        // Check which slider is being updated
         if (values == sliderRed)
         {
             lblRedValue.Text = value.ToString();
@@ -26,19 +29,23 @@ public partial class RGB : ContentPage
         {
             lblBlueValue.Text = value.ToString();
         }
-        else if (values == roundSlider) // Update the corner radius
+        else if (values == roundSlider)
         {
             lblRoundValue.Text = value.ToString();
-            SetSwatchCornerRadius(value);  // Set the corner radius based on the slider value
+            SetSwatchCornerRadius(value);
         }
 
-        UpdateSwatch();  // Update the swatch color based on the new slider values
+        sliderRed.ValueChanged += SetColor;
+        sliderGreen.ValueChanged += SetColor;
+        sliderBlue.ValueChanged += SetColor;
+
+        // Update the swatch color after setting values
+        UpdateSwatch();
     }
 
     private int GetColorValue(Label label)
     {
-
-        return int.Parse(label.Text); //the method returns the integer value (value).
+        return int.Parse(label.Text);
     }
 
     private void UpdateSwatch()
@@ -47,19 +54,18 @@ public partial class RGB : ContentPage
         int g = GetColorValue(lblGreenValue);
         int b = GetColorValue(lblBlueValue);
 
-        
-        borderSwatch.BackgroundColor = Color.FromRgb(r, g, b); //apply the color
 
-        //update the hex label
-        lblHexColor.Text = $"#{r:X2}{g:X2}{b:X2}"; //format specifier. X converts the integer to a hexadecimal string,
-                                                   //and 2 specifies that the result should be at least two digits long
+
+        // Apply the RGB color to the swatch
+        borderSwatch.BackgroundColor = Color.FromRgb(r, g, b);
+
+        // Update the hex label to display the color
+        lblHexColor.Text = $"#{r:X2}{g:X2}{b:X2}";
     }
 
-
-    //method to set the StrokeShape's CornerRadius of borderSwatch
+    // This method sets the corner radius of the border based on the roundSlider's value
     private void SetSwatchCornerRadius(int value)
     {
-        //Specifies that the border should be a rounded rectangle.
         borderSwatch.StrokeShape = new RoundRectangle
         {
             CornerRadius = new CornerRadius(value)
