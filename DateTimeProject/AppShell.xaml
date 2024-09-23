@@ -32,5 +32,10 @@
     Title="PickerImagePage"
     ContentTemplate="{DataTemplate local:PickerImagePage}"
     Route="PickerImagePage" />
-    
+
+    <ShellContent
+    Title="PhoneDialerApp"
+    ContentTemplate="{DataTemplate local:PhoneDialerApp}"
+    Route="PhoneDialerApp" />
+
 </Shell>

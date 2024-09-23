@@ -29,5 +29,12 @@
             // Navigate to StepperSlider_Page using absolute routing
             await Shell.Current.GoToAsync("///RGB");
         }
+
+
+        private async void OnPhoneDialerButtonClicked(object sender, EventArgs e)
+        {
+            // Navigate to StepperSlider_Page using absolute routing
+            await Shell.Current.GoToAsync("///PhoneDialerApp");
+        }
     }
 }

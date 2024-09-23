@@ -8,13 +8,20 @@ public partial class RGB : ContentPage
     {
         InitializeComponent();
 
+        // attach the SetColor as the event handler for ValueChanged event 
+
+        sliderRed.ValueChanged += SetColor;
+        sliderGreen.ValueChanged += SetColor;
+        sliderBlue.ValueChanged += SetColor;
+        roundSlider.ValueChanged += SetColor;
+
 
     }
 
-    // This method should only update the current slider's value, not recursively call itself
+    // method should only update the current slider value
     private void SetColor(object values, ValueChangedEventArgs e)
     {
-        Slider slider = values as Slider;
+        Slider slider = (Slider)values;
         int value = (int)e.NewValue;
 
         if (values == sliderRed)
@@ -35,11 +42,7 @@ public partial class RGB : ContentPage
             SetSwatchCornerRadius(value);
         }
 
-        sliderRed.ValueChanged += SetColor;
-        sliderGreen.ValueChanged += SetColor;
-        sliderBlue.ValueChanged += SetColor;
-
-        // Update the swatch color after setting values
+        // update the swatch color after setting values
         UpdateSwatch();
     }
 
@@ -56,14 +59,14 @@ public partial class RGB : ContentPage
 
 
 
-        // Apply the RGB color to the swatch
+        //apply the RGB color to the swatch
         borderSwatch.BackgroundColor = Color.FromRgb(r, g, b);
 
-        // Update the hex label to display the color
+        //update the hex label
         lblHexColor.Text = $"#{r:X2}{g:X2}{b:X2}";
     }
 
-    // This method sets the corner radius of the border based on the roundSlider's value
+    //sets the corner radius of the border based on the roundSlider's value
     private void SetSwatchCornerRadius(int value)
     {
         borderSwatch.StrokeShape = new RoundRectangle

@@ -38,6 +38,12 @@
             Clicked="OnImagePickerButtonClicked"
             HorizontalOptions="Fill" />
 
+            <!-- Button to navigate to RGB slider -->
+            <Button
+            Text="Go to Phone Dialer"
+            Clicked="OnPhoneDialerButtonClicked"
+            HorizontalOptions="Fill" />
+
 
         </VerticalStackLayout>
     </ScrollView>
