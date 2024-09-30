@@ -4,61 +4,57 @@
              x:Class="TicTacToe.MainPage">
 
     <Grid>
-        <!-- Background Image with stretch effect -->
+        <!-- fill effect -->
         <Image Source="back.jpg" Aspect="Fill" />
-
 
         <Grid Padding="30" RowSpacing="10" ColumnSpacing="10" BackgroundColor="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
-                <!-- Row 0 -->
                 <RowDefinition Height="80"/>
-                <!-- Row 1 -->
                 <RowDefinition Height="80"/>
-                <!-- Row 2 -->
                 <RowDefinition Height="Auto"/>
-                <!-- Row for buttons -->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Tic-Tac-Toe buttons with rounded corners -->
+            <!-- buttons with rounded corners -->
             <Button x:Name="Button0" Grid.Row="0" Grid.Column="0" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button1" Grid.Row="0" Grid.Column="1" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button2" Grid.Row="0" Grid.Column="2" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button3" Grid.Row="1" Grid.Column="0" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button4" Grid.Row="1" Grid.Column="1" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button5" Grid.Row="1" Grid.Column="2" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button6" Grid.Row="2" Grid.Column="0" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button7" Grid.Row="2" Grid.Column="1" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
             <Button x:Name="Button8" Grid.Row="2" Grid.Column="2" FontSize="Large" 
-                    Clicked="OnButtonClick" CornerRadius="50" BackgroundColor="Black"/>
+                    Clicked="ButtonClick" CornerRadius="50" BackgroundColor="Black"/>
 
-            <!-- New Game and First Player buttons below the grid -->
-            <Grid Grid.Row="4" ColumnSpacing="3" Padding="0, 40, 0, 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=".000001*"/>
-                    <ColumnDefinition Width=".000001*"/>
-                </Grid.ColumnDefinitions>
+            <!-- New Game button  -->
+            <Button Text="Новая игра" Clicked="NewGame" Grid.Row="4" Grid.ColumnSpan="3" 
+                    BackgroundColor="PaleVioletRed" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
 
-                <!-- Button for New Game -->
-                <Button Text="Новая игра" Clicked="NewGame" Grid.Column="0" BackgroundColor="PaleVioletRed" FontSize="Medium"/>
+            <!-- First Player button -->
+            <Button Text="Поменять первого игрока" Clicked="ChooseFirstPlayer" Grid.Row="5" Grid.ColumnSpan="3" 
+                    BackgroundColor="Violet" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
 
-                <!-- Button for Choosing First Player -->
-                <Button Text="Сменить игрока" Clicked="ChooseFirstPlayer" Grid.Column="3" BackgroundColor="BlueViolet" FontSize="Medium"/>
-            </Grid>
+            <!-- Play with Bot button -->
+            <Button Text="Игра с ботом" Clicked="PlayWithBot" Grid.Row="6" Grid.ColumnSpan="3" 
+                    BackgroundColor="MediumVioletRed" FontSize="Medium" HorizontalOptions="FillAndExpand"/>
         </Grid>
     </Grid>
 </ContentPage>
