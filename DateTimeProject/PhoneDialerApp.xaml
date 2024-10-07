@@ -4,62 +4,80 @@
              Title="Phone Dialer">
 
     <StackLayout Padding="20" Spacing="15">
-        <Label Text="Choose an Action:" 
+
+        <Label Text="Select Action:" 
                FontSize="20" 
                HorizontalOptions="Center" />
 
         <Picker x:Name="actionPicker"
                 Title="Select Action"
-                SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                SelectedIndexChanged="OnActionPickerSelectedIndexChanged"
+                SelectedIndex="0">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>Call</x:String>
                     <x:String>Send SMS</x:String>
                     <x:String>Send Email</x:String>
+                    <x:String>Make Call</x:String>
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
 
-        <Label Text="Enter Phone Number:" 
-               FontSize="20" 
-               HorizontalOptions="Center" />
-        <Entry x:Name="phoneNumberEntry" 
-               Placeholder="Phone Number" 
-               Keyboard="Telephone" />
+        <!-- Name Entry -->
+        <Label x:Name="nameLabel"
+       Text="Enter Name:"
+       FontSize="20"
+       HorizontalOptions="Center" />
+        <Entry x:Name="nameEntry" Placeholder="Name" />
 
-        <Label Text="Enter SMS Message:" 
-               FontSize="20" 
+        <!-- Phone Number Entry -->
+        <Label x:Name="smsPhoneNumberLabel"
+               Text="Enter Phone Number:"
+               FontSize="20"
                HorizontalOptions="Center" />
-        <Entry x:Name="smsMessageEntry" 
-               Placeholder="SMS Message" 
-               Keyboard="Text" />
+        <Entry x:Name="phoneNumberEntry" Placeholder="Phone Number" Keyboard="Telephone" />
 
-        <Label Text="Enter Email Address:" 
-               FontSize="20" 
-               HorizontalOptions="Center" />
-        <Entry x:Name="emailEntry" 
-               Placeholder="Email Address" 
-               Keyboard="Email" />
-
-        <Label Text="Subject:" 
-               FontSize="20" 
-               HorizontalOptions="Center" />
-        <Entry x:Name="emailSubjectEntry" 
-               Placeholder="Email Subject" 
-               Keyboard="Text" />
-
-        <Label Text="Message Body:" 
-               FontSize="20" 
-               HorizontalOptions="Center" />
-        <Editor x:Name="emailBodyEntry" 
-                Placeholder="Message Body" 
-                HeightRequest="100" 
-                Keyboard="Text" />
-
-        <Button Text="Submit" 
+        <Button Text="Send SMS" 
                 FontSize="20" 
-                Clicked="OnSubmitButtonClicked" />
+                x:Name="sendSmsButton"
+                Clicked="SendSmsButtonClicked" />
+
+        <Button Text="Save to Contacts" 
+                FontSize="20" 
+                x:Name="saveContactButton"
+                Clicked="SaveContactButtonClicked" 
+                IsVisible="False" />
+        <!-- Initially hidden -->
+
+        <Picker x:Name="contactsPicker" SelectedIndexChanged="OnContactsPickerSelectedIndexChanged" />
+
+        <!-- Email Section -->
+        <Label x:Name="emailAddressLabel"
+               Text="Enter Email Address:"
+               FontSize="20"
+               HorizontalOptions="Center" />
+        <Entry x:Name="emailEntry" Placeholder="Email Address" Keyboard="Email" />
+
+        <Label x:Name="emailSubjectLabel"
+               Text="Enter Subject:"
+               FontSize="20"
+               HorizontalOptions="Center" />
+        <Entry x:Name="emailSubjectEntry" Placeholder="Subject" />
+
+        <Label x:Name="emailBodyLabel"
+               Text="Enter Body:"
+               FontSize="20"
+               HorizontalOptions="Center" />
+        <Editor x:Name="emailBodyEntry" Placeholder="Body" AutoSize="TextChanges" />
+
+        <Button Text="Send Email" 
+                FontSize="20" 
+                x:Name="sendEmailButton"
+                Clicked="SendEmailButtonClicked" />
+
+        <!-- Call Section -->
+        <Button Text="Make Call" 
+                FontSize="20" 
+                x:Name="callButton"
+                Clicked="CallButtonClicked" />
     </StackLayout>
-
 </ContentPage>
-
