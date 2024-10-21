@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Learn_a_language"
+             x:Class="Learn_a_language.MainPage"
+             Title="Õpi Võõrkeelt">
+
+    <StackLayout VerticalOptions="Start" Padding="10">
+        <!-- Taustapilt -->
+        <Image Source="back.jpg"
+               Aspect="AspectFill"
+               HeightRequest="100" />
+
+        <!-- Uue sõna sisestamise vorm -->
+        <StackLayout Padding="20" HorizontalOptions="Center" VerticalOptions="Start">
+            <Label Text="Sisesta sõna" HorizontalOptions="Start" />
+            <Entry Placeholder="Sisesta sõna" Text="{Binding NewWord.Nimetus}" WidthRequest="300" />
+
+            <Label Text="Sisesta tõlge" HorizontalOptions="Start" />
+            <Entry Placeholder="Sisesta tõlge" Text="{Binding NewWord.Tõlge}" WidthRequest="300" />
+
+            <Label Text="Sisesta selgitus" HorizontalOptions="Start" />
+            <Entry Placeholder="Sisesta selgitus" Text="{Binding NewWord.Selgitus}" WidthRequest="300" />
+
+            <Label Text="Vali kategooria" HorizontalOptions="Start" />
+            <Picker Title="Vali kategooria" SelectedItem="{Binding NewWord.Kategooria}" WidthRequest="300">
+                <Picker.Items>
+                    <x:String>õppimisel</x:String>
+                    <x:String>õpitud</x:String>
+                    <x:String>kordamisel</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Salvesta" Command="{Binding SaveWordCommand}" HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="300" />
+        </StackLayout>
+
+        <!-- Kaarte haldav karussell -->
+        <CarouselView x:Name="wordCarousel" ItemsSource="{Binding WordList}" VerticalOptions="Start">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" HorizontalOptions="Center" WidthRequest="300">
+                        <Label Text="{Binding Nimetus}" FontSize="24" HorizontalOptions="Center" />
+                        <Label Text="{Binding Tõlge}" FontSize="18" HorizontalOptions="Center" />
+                        <Label Text="{Binding Selgitus}" FontSize="14" HorizontalOptions="Center" />
+                        <Label Text="{Binding Kategooria}" FontSize="14" HorizontalOptions="Center" />
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!-- Tagasi ja edasi nupud -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="10" VerticalOptions="Start">
+            <Button Text="Back" Clicked="OnBackButtonClicked" WidthRequest="100" />
+            <Button Text="Forward" Clicked="OnForwardButtonClicked" WidthRequest="100" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
